@@ -32,7 +32,7 @@ class Lab4FP : ComponentActivity(){
                 color = MaterialTheme.colorScheme.background
 
             ){
-               // PortadaLaboratorio()
+               PortadaLaboratorio()
             }
         }
     }

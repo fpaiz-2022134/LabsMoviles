@@ -20,6 +20,7 @@ import androidx.navigation.compose.rememberNavController
 import plat.labs.paiz.ui.theme.LabsFPTheme
 
 import plat.labs.paiz.lab4.PortadaLaboratorio
+import plat.labs.paiz.lab5.Lab5ActivityScreen
 
 /*
 GITHUB REPOSITORY:
@@ -102,6 +103,24 @@ fun AppNavigation() {
                 }
             }
         }
+
+        composable("lab5") {
+            Box(modifier = Modifier.fillMaxSize()) {
+                Lab5ActivityScreen()
+
+                IconButton(
+                    onClick = { navController.popBackStack() },
+                    modifier = Modifier
+                        .padding(top = 32.dp, start = 16.dp)
+                        .align(Alignment.TopStart)
+                ) {
+                    Icon(
+                        imageVector = Icons.AutoMirrored.Filled.ArrowBack,
+                        contentDescription = "Regresar al menú"
+                    )
+                }
+            }
+        }
     }
 }
 
@@ -148,10 +167,17 @@ fun MenuScreen(onNavigateToLab: (String) -> Unit) {
         ) {
             Text("Laboratorio 4 (Portada)")
         }
+
+        Button(
+            onClick = {onNavigateToLab("lab5")},
+            modifier = Modifier.fillMaxWidth().padding(bottom = 16.dp)
+        ){
+            Text("Laboratorio 5")
+        }
     }
 }
 
-// 3. Plantilla Reutilizable para las pantallas de información (Labs 1, 2 y 3)
+// 3. Plantilla Reutilizable para la info
 @Composable
 fun PantallaInfoLab(titulo: String, descripcion: String, onBack: () -> Unit) {
     Column(
