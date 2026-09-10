@@ -128,7 +128,8 @@ fun Lab6Screen(
 
                         totalDecrements++
 
-                        if (totalDecrements == 1 || counter < minimumValue) {
+
+                        if (counter < minimumValue) {
                             minimumValue = counter
                         }
 
