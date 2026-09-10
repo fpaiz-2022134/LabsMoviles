@@ -21,6 +21,7 @@ import plat.labs.paiz.ui.theme.LabsFPTheme
 
 import plat.labs.paiz.lab4.PortadaLaboratorio
 import plat.labs.paiz.lab5.Lab5ActivityScreen
+import plat.labs.paiz.lab6.Lab6Screen
 
 /*
 GITHUB REPOSITORY:
@@ -121,6 +122,24 @@ fun AppNavigation() {
                 }
             }
         }
+
+        composable("lab6") {
+            Box(modifier = Modifier.fillMaxSize()) {
+                Lab6Screen()
+
+                IconButton(
+                    onClick = { navController.popBackStack() },
+                    modifier = Modifier
+                        .padding(top = 32.dp, start = 16.dp)
+                        .align(Alignment.TopStart)
+                ) {
+                    Icon(
+                        imageVector = Icons.AutoMirrored.Filled.ArrowBack,
+                        contentDescription = "Regresar al menú"
+                    )
+                }
+            }
+        }
     }
 }
 
@@ -173,6 +192,13 @@ fun MenuScreen(onNavigateToLab: (String) -> Unit) {
             modifier = Modifier.fillMaxWidth().padding(bottom = 16.dp)
         ){
             Text("Laboratorio 5")
+        }
+
+        Button(
+            onClick = {onNavigateToLab("lab6")},
+            modifier = Modifier.fillMaxWidth().padding(bottom = 16.dp)
+        ){
+            Text("Laboratorio 6")
         }
     }
 }
